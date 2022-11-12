@@ -4,10 +4,41 @@
 
 
     <div class="text-center">
-        <h2>There are our notes.</h2>
+        <h2>There are our notes.
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+               aria-expanded="false" aria-controls="collapseExample"><i class="fa-regular fa-circle-plus"></i></a>
+        </h2>
     </div>
 
     <hr>
+
+
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="id_title">Note title</label>
+                    {{ form.title }}
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="id_due_date">Due date</label>
+                    {{ form.due_date }}
+                </div>
+                <div class="mb-3 form-check">
+                    {{ form.note_label }}
+                    <label class="form-check-label" for="id_note_label">Label</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+
     <div class="row">
         {% for note in notes %}
             <div class="col-12">
@@ -22,6 +53,7 @@
         <h2>There are our fineshed notes.</h2>
     </div>
     <hr>
+
     <div class="row">
         {% for note in finished_list %}
             <div class="col-12">
