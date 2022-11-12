@@ -1,0 +1,31 @@
+<style>
+        h3 {
+            position: relative;
+        }
+
+        .icons {
+            position: absolute;
+            right: 5px;
+
+        }
+    </style>
+
+<div class="card">
+    <div class="card-body">
+        <h3>{{ note.title }}
+            <span class="badge bg-{{ note.get_note_label_display }}">
+                                {{ note.due_date }}
+            </span>
+            <span class="icons">
+                {% if type == 'DELETE' %}
+                        <a href="{{ note.get_finish_item_url }}"><i class="fa-regular fa-circle-check"></i></a>
+                {% else %}
+                        <a href="{{ note.get_recover_item_url }}"><i class="fa-regular fa-circle-xmark"></i></a>
+                {% endif %}
+                        <a href="{{ note.get_delete_item_url }}"><i class="fa-solid fa-trash-arrow-up" style="color: red"></i></a>
+            </span>
+        </h3>
+
+
+    </div>
+</div>

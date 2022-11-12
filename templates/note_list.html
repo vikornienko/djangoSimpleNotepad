@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
     <div class="text-center">
         <h2>There are our notes.</h2>
     </div>
@@ -9,16 +11,21 @@
     <div class="row">
         {% for note in notes %}
             <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h3>{{ note.title }}
-                        <span class="badge bg-{{ note.get_note_label_display }}">
-                {{ note.due_date }}
-            </span></h3>
-                    <span><i class="fa-regular fa-circle-check"></i></span>
-                    <span><i class="fa-solid fa-trash-arrow-up"></i></span>
-                </div>
+                {% include 'note_snippet.html' with note=note type='DELETE' %}
             </div>
+
+
+        {% endfor %}
+    </div>
+
+    <div class="text-center">
+        <h2>There are our fineshed notes.</h2>
+    </div>
+    <hr>
+    <div class="row">
+        {% for note in finished_list %}
+            <div class="col-12">
+                {% include 'note_snippet.html' with note=note type='ADD' %}
             </div>
 
 
